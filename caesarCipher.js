@@ -2,10 +2,22 @@ const caesarCipher = () => {
 
     const convertStringNumbers = (str, key) => {
         const stringsArray = str.split('')
+        console.log(stringsArray)
+
+        const capsLetters = []
         const numsArray = []
-        for(let i = 0; i < stringsArray.length; i += 1){
-            numsArray.push(str.charCodeAt(i))
+        for (var i = 0; i < stringsArray.length; i++) {
+
+          if (stringsArray[i] == stringsArray[i].toUpperCase()) {
+            capsLetters.push(i)
+          }
         }
+
+        for(let i = 0; i < stringsArray.length; i += 1){
+            numsArray.push(str.toLowerCase().charCodeAt(i))
+        }
+
+        console.log(capsLetters)
 
         return addKey(numsArray, key)
     }
@@ -36,9 +48,13 @@ const caesarCipher = () => {
     console.log(newStr.join(''))
     }
 
+   const capsFunction = () => {
+
+   }
+
     return { convertStringNumbers }
 
 }
 
 let caesarCipherInstance = caesarCipher()
-caesarCipherInstance.convertStringNumbers('asdfghjklxcvbn', 8)
+caesarCipherInstance.convertStringNumbers('BooK', 1)
