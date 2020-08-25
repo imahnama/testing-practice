@@ -8,7 +8,8 @@ Practicing testing with jest
 
 ## Screenshot
 
-![test](images/1.png)
+![test terminal](images/1.png)
+![web view](images/2.png)
 
 
 ### Setup
