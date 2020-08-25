@@ -1,65 +1,63 @@
 const caesarCipher = () => {
+  const capsLetters = [];
 
-  const capsLetters = []
+  const capsFunction = (newStr) => {
+    capsLetters.map(val => newStr.splice(val, 1, newStr[val].toUpperCase()));
 
-    const convertStringNumbers = (str, key) => {
-        const stringsArray = str.split('')
-        
-        const numsArray = []
-        for (var i = 0; i < stringsArray.length; i++) {
+    return (newStr.join(''));
+  };
 
-          if (stringsArray[i] == stringsArray[i].toUpperCase()) {
-            capsLetters.push(i)
-          }
-        }
+  const strConversion = (updatedArray) => {
+    const newStr = [];
 
-        for(let i = 0; i < stringsArray.length; i += 1){
-            numsArray.push(str.toLowerCase().charCodeAt(i))
-        }
-
-
-        return addKey(numsArray, key)
+    for (let i = 0; i < updatedArray.length; i += 1) {
+      newStr.push(String.fromCharCode(updatedArray[i]));
     }
 
-    const addKey = (numsArray, key) => {
-        const updatedArray = []
+    return capsFunction(newStr);
+  };
 
-        numsArray.forEach(element => {
-            const newChar = element + key
-            if(newChar >= 97 && newChar <= 122){
-                updatedArray.push(newChar)
-            }else {
-                updatedArray.push(newChar - 26)
 
-            }
-        });
-        return strConversion(updatedArray)
-    }
+  const addKey = (numsArray, key) => {
+    const updatedArray = [];
 
-    const strConversion = (updatedArray) => {
-
-      let newStr = []
-
-      for (var i = 0; i < updatedArray.length; i++) {
-      newStr.push(String.fromCharCode(updatedArray[i]))
+    numsArray.forEach(element => {
+      if (element >= 97 && element <= 122) {
+        const newChar = element + key;
+        if (newChar >= 97 && newChar <= 122) {
+          updatedArray.push(newChar);
+        } else {
+          updatedArray.push(newChar - 26);
+        }
+      } else {
+        updatedArray.push(element);
       }
+    });
 
-    return capsFunction(newStr)
+    return strConversion(updatedArray);
+  };
+
+  const convertStringNumbers = (str, key) => {
+    const stringsArray = str.split('');
+
+    const numsArray = [];
+    for (let i = 0; i < stringsArray.length; i += 1) {
+      if (stringsArray[i] === stringsArray[i].toUpperCase()
+      && str.charCodeAt(i) >= 65
+       && str.charCodeAt(i) <= 90) {
+        capsLetters.push(i);
+      }
     }
 
-   const capsFunction = (newStr) => {
+    for (let i = 0; i < stringsArray.length; i += 1) {
+      numsArray.push(str.toLowerCase().charCodeAt(i));
+    }
 
-     capsLetters.map(val => {
-       newStr.splice(val, 1, newStr[val].toUpperCase())
-     })
+    return addKey(numsArray, key);
+  };
 
-     console.log(newStr.join(''))
+  return { convertStringNumbers };
+};
 
-   }
-
-    return { convertStringNumbers }
-
-}
-
-let caesarCipherInstance = caesarCipher()
-caesarCipherInstance.convertStringNumbers('convertStringNumbers', 1)
+const caesarCipherInstance = caesarCipher();
+caesarCipherInstance.convertStringNumbers('Hel~lo Wor?l`@[}d!,', 1);
