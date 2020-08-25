@@ -1,7 +1,5 @@
-const reverseString = (x) => {
-  return (x.split('').reverse().join(''))
-}
+const reverseString = (x) => (x.split('').reverse().join(''));
 
-reverseString('book')
+reverseString('book');
 
-module.exports = reverseString
+module.exports = reverseString;
