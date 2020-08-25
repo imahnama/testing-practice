@@ -59,5 +59,4 @@ const caesarCipher = () => {
   return { convertStringNumbers };
 };
 
-const caesarCipherInstance = caesarCipher();
-caesarCipherInstance.convertStringNumbers('Hel~lo Wor?l`@[}d!,', 1);
+module.exports = caesarCipher
