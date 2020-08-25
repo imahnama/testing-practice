@@ -22,9 +22,18 @@ const caesarCipher = () => {
 
             }
         });
+        return strConversion(updatedArray)
+    }
 
-        console.log(updatedArray)
+    const strConversion = (updatedArray) => {
 
+      let newStr = []
+
+      for (var i = 0; i < updatedArray.length; i++) {
+      newStr.push(String.fromCharCode(updatedArray[i]))
+      }
+
+    console.log(newStr.join(''))
     }
 
     return { convertStringNumbers }
@@ -32,4 +41,4 @@ const caesarCipher = () => {
 }
 
 let caesarCipherInstance = caesarCipher()
-caesarCipherInstance.convertStringNumbers('Hello world', 2)
+caesarCipherInstance.convertStringNumbers('asdfghjklxcvbn', 8)
