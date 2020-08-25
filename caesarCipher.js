@@ -59,4 +59,4 @@ const caesarCipher = () => {
   return { convertStringNumbers };
 };
 
-module.exports = caesarCipher
+module.exports = caesarCipher;

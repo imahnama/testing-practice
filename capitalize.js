@@ -1,7 +1,5 @@
-const capitalize = (x) => {
-  return (x.charAt(0).toUpperCase() + x.slice(1))
-}
+const capitalize = (x) => (x.charAt(0).toUpperCase() + x.slice(1));
 
-capitalize('name')
+capitalize('name');
 
-module.exports = capitalize
+module.exports = capitalize;

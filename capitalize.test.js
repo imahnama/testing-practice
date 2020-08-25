@@ -1,6 +1,6 @@
-import capitalize from './capitalize'
+import capitalize from './capitalize';
 
 test('capitalizes a string', () => {
-  expect(capitalize('name')).toBe('Name')
-  expect(capitalize('name')).not.toBe('name')
-})
+  expect(capitalize('name')).toBe('Name');
+  expect(capitalize('name')).not.toBe('name');
+});
