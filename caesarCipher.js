@@ -1,24 +1,22 @@
 const caesarCipher = () => {
-  const capsLetters = [];
-
-  const capsFunction = (newStr) => {
+  const capsFunction = (newStr, capsLetters) => {
     capsLetters.map(val => newStr.splice(val, 1, newStr[val].toUpperCase()));
 
     return (newStr.join(''));
   };
 
-  const strConversion = (updatedArray) => {
+  const strConversion = (updatedArray, capsLetters) => {
     const newStr = [];
 
     for (let i = 0; i < updatedArray.length; i += 1) {
       newStr.push(String.fromCharCode(updatedArray[i]));
     }
 
-    return capsFunction(newStr);
+    return capsFunction(newStr, capsLetters);
   };
 
 
-  const addKey = (numsArray, key) => {
+  const addKey = (numsArray, key, capsLetters) => {
     const updatedArray = [];
 
     numsArray.forEach(element => {
@@ -34,11 +32,12 @@ const caesarCipher = () => {
       }
     });
 
-    return strConversion(updatedArray);
+    return strConversion(updatedArray, capsLetters);
   };
 
   const convertStringNumbers = (str, key) => {
     const stringsArray = str.split('');
+    const capsLetters = [];
 
     const numsArray = [];
     for (let i = 0; i < stringsArray.length; i += 1) {
@@ -53,7 +52,7 @@ const caesarCipher = () => {
       numsArray.push(str.toLowerCase().charCodeAt(i));
     }
 
-    return addKey(numsArray, key);
+    return addKey(numsArray, key, capsLetters);
   };
 
   return { convertStringNumbers };
